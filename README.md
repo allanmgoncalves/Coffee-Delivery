@@ -1,4 +1,4 @@
-# Coffee Delivery • React Challange
+# Coffee Delivery • React Challenge
 
 In this challenge, I will develop an application to manage a shopping cart for a fictional coffee shop, which contains the following features:
 
