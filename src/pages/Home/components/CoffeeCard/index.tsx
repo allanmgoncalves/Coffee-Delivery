@@ -1,4 +1,4 @@
-import traditional from '../../../../assets/img_espresso.svg'
+import { Coffee } from '../../../../contexts/ProductsContext'
 
 import { Minus, Plus, ShoppingCart } from 'phosphor-react'
 import {
@@ -13,24 +13,25 @@ import {
   ProductCounterContainer,
 } from './styles'
 
-export function CoffeeCard() {
+export function CoffeeCard({ image, name, description, types, price }: Coffee) {
   return (
     <CoffeeCardContainer>
       <HeaderCardContainer>
-        <img src={traditional} alt="" />
+        <img src={image} alt="" />
         <BadgeContainer>
-          <Badge>Traditional</Badge>
-          <Badge>Hot</Badge>
+          {types.map((type, index) => {
+            return <Badge key={index}>{type}</Badge>
+          })}
         </BadgeContainer>
       </HeaderCardContainer>
       <BodyCardContainer>
-        <h3>Traditional Espresso</h3>
-        <p>Traditional coffee made with hot water and ground beans</p>
+        <h3>{name}</h3>
+        <p>{description}</p>
       </BodyCardContainer>
       <FooterCardContainer>
         <PriceContainer>
           <span>$</span>
-          <p>9.90</p>
+          <p>{price}</p>
         </PriceContainer>
         <ProductCounterContainer>
           <Minus size={14} weight="bold" />

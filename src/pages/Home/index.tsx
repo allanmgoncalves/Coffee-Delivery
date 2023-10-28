@@ -1,14 +1,19 @@
 import {
   HeroContainer,
   Highlight,
+  IconContainer,
   MainContainer,
   ProductsListContainer,
 } from './styles'
 import imgHero from '../../assets/img_hero.svg'
 import { Coffee, Package, ShoppingCart, Timer } from 'phosphor-react'
 import { CoffeeCard } from './components/CoffeeCard'
+import { ProductsContext } from '../../contexts/ProductsContext'
+import { useContext } from 'react'
 
 export function Home() {
+  const { coffees } = useContext(ProductsContext)
+
   return (
     <>
       <HeroContainer>
@@ -21,30 +26,30 @@ export function Home() {
 
           <div className="heroHighlights">
             <Highlight>
-              <span>
+              <IconContainer color="primaryDark">
                 <ShoppingCart size={16} weight="fill" />
-              </span>
+              </IconContainer>
               Simple and secure purchase
             </Highlight>
 
             <Highlight>
-              <span>
+              <IconContainer color="gray700">
                 <Package size={16} weight="fill" />
-              </span>
+              </IconContainer>
               Package keeps the coffee intact
             </Highlight>
 
             <Highlight>
-              <span>
+              <IconContainer color="primary">
                 <Timer size={16} weight="fill" />
-              </span>
+              </IconContainer>
               Fast and tracked delivery
             </Highlight>
 
             <Highlight>
-              <span>
+              <IconContainer color="secondary">
                 <Coffee size={16} weight="fill" />
-              </span>
+              </IconContainer>
               Simple and secure purchase
             </Highlight>
           </div>
@@ -58,11 +63,18 @@ export function Home() {
         <h2>Ours Coffees</h2>
 
         <ProductsListContainer>
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
-          <CoffeeCard />
+          {coffees.map((coffee) => {
+            return (
+              <CoffeeCard
+                key={coffee.id}
+                image={coffee.image}
+                name={coffee.name}
+                types={coffee.types}
+                description={coffee.description}
+                price={coffee.price}
+              />
+            )
+          })}
         </ProductsListContainer>
       </MainContainer>
     </>

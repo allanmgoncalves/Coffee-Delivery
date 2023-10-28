@@ -44,6 +44,26 @@ export const HeaderContainer = styled.header`
       background-color: ${(props) => props.theme['primary-light']};
 
       border-radius: ${(props) => props.theme['radius-medium']};
+      position: relative;
+
+      span {
+        min-width: 20px;
+        height: 20px;
+        padding: 0.25rem;
+
+        position: absolute;
+        right: -8px;
+        top: -8px;
+
+        font-size: ${(props) => props.theme['text-s']};
+        font-weight: 700;
+        line-height: initial;
+
+        color: ${(props) => props.theme['primary-light']};
+        background-color: ${(props) => props.theme['primary-dark']};
+
+        border-radius: ${(props) => props.theme['radius-large']};
+      }
     }
   }
 `

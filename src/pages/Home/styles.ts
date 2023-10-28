@@ -40,6 +40,7 @@ export const HeroContainer = styled.div`
 
   /* Responsive */
   @media (max-width: 768px) {
+    background: none;
     flex-direction: column;
 
     gap: 3rem;
@@ -55,27 +56,40 @@ export const HeroContainer = styled.div`
     }
   }
 `
+
 export const Highlight = styled.span`
   display: flex;
   align-items: center;
 
   gap: 0.75rem;
+`
 
-  span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+const COLOR = {
+  primary: 'primary',
+  primaryDark: 'primary-dark',
+  secondary: 'secondary',
+  gray700: 'gray-700',
+} as const
 
-    padding: 0.5rem;
-    background-color: ${(props) => props.theme['primary-dark']};
+interface StatusProps {
+  color: keyof typeof COLOR
+}
 
-    border-radius: ${(props) => props.theme['radius-large']};
+export const IconContainer = styled.span<StatusProps>`
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    svg {
-      color: ${(props) => props.theme['gray-100']};
-    }
+  padding: 0.5rem;
+
+  border-radius: ${(props) => props.theme['radius-large']};
+  background: ${(props) => props.theme[COLOR[props.color]]};
+
+  svg {
+    color: ${(props) => props.theme['gray-100']};
   }
 `
+
 export const MainContainer = styled.div`
   width: 100%;
   max-width: 72rem;

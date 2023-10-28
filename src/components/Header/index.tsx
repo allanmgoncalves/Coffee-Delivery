@@ -5,6 +5,8 @@ import { HeaderContainer } from './styles'
 import logo from '../../assets/logo.svg'
 
 export function Header() {
+  const myCurrentLocation = 'Waterloo, ON'
+  const totalItemsInCart = 3
   return (
     <HeaderContainer>
       <NavLink to="/" title="Home">
@@ -12,9 +14,10 @@ export function Header() {
       </NavLink>
       <nav>
         <span>
-          <MapPin size={24} weight="fill" /> Waterloo, ON
+          <MapPin size={24} weight="fill" /> {myCurrentLocation}
         </span>
         <NavLink to="/checkout" title="Checkout">
+          <span>{totalItemsInCart}</span>
           <ShoppingCart size={24} weight="fill" />
         </NavLink>
       </nav>

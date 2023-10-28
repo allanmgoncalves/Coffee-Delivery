@@ -18,8 +18,8 @@ export const HeaderCardContainer = styled.header`
   flex-direction: column;
 
   img {
-    margin-top: -2.5rem;
-    margin-bottom: 0.75rem;
+    width: 120px;
+    margin: -2.5rem auto 0.75rem auto;
   }
 `
 
@@ -27,6 +27,7 @@ export const BadgeContainer = styled.div`
   display: flex;
   gap: 0.25rem;
   flex-wrap: wrap;
+  margin: 0 auto;
 `
 
 export const Badge = styled.span`
@@ -79,7 +80,7 @@ export const ButtonSquareContainer = styled.button`
   border: 0;
   border-radius: ${(props) => props.theme['radius-medium']};
 
-  transition: all 0.2s linear;
+  transition: background-color 0.175s linear;
 
   &:hover {
     cursor: pointer;
@@ -124,7 +125,7 @@ export const ProductCounterContainer = styled.div`
   svg {
     color: ${(props) => props.theme.secondary};
 
-    transition: all 0.2s linear;
+    transition: color 0.175s linear;
 
     &:hover {
       cursor: pointer;
